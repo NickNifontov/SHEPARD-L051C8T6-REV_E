@@ -136,13 +136,13 @@ void Calc_Temp(void) {
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	//if(GPIO_Pin== SD_Pin) {
+	//  if(GPIO_Pin== SD_Pin) {
 		if (HAL_GPIO_ReadPin(SD_GPIO_Port,SD_Pin)==GPIO_PIN_RESET) {
 			Blocked_by_Perek=1;
 		} else {
 			Blocked_by_Perek=0;
 		}
-	//}
+	//  }
 }
 
 void HAL_PWR_PVDCallback(void)
