@@ -526,6 +526,10 @@ void StartCUR_Task(void const * argument)
 {
 	 for(;;) {
 
+
+		 //Ready_AVG_CUR=3;
+		 //osDelay(1000);
+
 		 if (Ready_AVG_CUR==1) {
 			 Ready_AVG_CUR=0; //received AVG value and now perform it
 
