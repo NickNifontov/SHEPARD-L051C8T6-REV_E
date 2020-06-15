@@ -528,7 +528,6 @@ void StartCUR_Task(void const * argument)
 
 
 		 //Ready_AVG_CUR=3;
-		 //osDelay(1000);
 
 		 if (Ready_AVG_CUR==1) {
 			 Ready_AVG_CUR=0; //received AVG value and now perform it
@@ -560,7 +559,7 @@ void StartCUR_Task(void const * argument)
 
 
 		 }
-		 //
+
 		 if (Ready_AVG_BASE==1) {
 			 Ready_AVG_BASE=0;
 
@@ -569,9 +568,10 @@ void StartCUR_Task(void const * argument)
 			 }
 
 		 }
-		 //
+
 		 osDelay(1);
 	 }
+
 }
 
 /* Private application code --------------------------------------------------*/
