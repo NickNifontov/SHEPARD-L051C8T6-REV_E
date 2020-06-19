@@ -182,7 +182,14 @@ void StartLoop_Task(void const * argument)
 	  /* ###  - Start COMP ################################# */
 	  HAL_COMP_Start(&hcomp2);
 
-	  osDelay(1000);
+	  osDelay(500);
+
+	  // Check Perek
+	  HAL_GPIO_EXTI_Callback(SD_Pin);
+
+	  osDelay(500);
+
+	  HAL_GPIO_EXTI_Callback(SD_Pin);
 
 	  for(;;)
 	  {
@@ -275,6 +282,7 @@ void StartLoop_Task(void const * argument)
 				restart_flag_stamp=0;
 			}
 		}
+		restart_flag=1;
 
 		taskYIELD();
 	  }

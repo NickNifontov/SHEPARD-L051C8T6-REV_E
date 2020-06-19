@@ -54,7 +54,7 @@
 volatile uint8_t INV_STATE=0; // 0-off
 
 volatile uint8_t Blocked_by_AB=1;
-volatile uint8_t Blocked_by_Perek=1;
+volatile uint8_t Blocked_by_Perek=0;
 volatile uint8_t Blocked_by_TEMP=1;
 volatile uint8_t Blocked_by_PVD=1;
 
@@ -136,13 +136,15 @@ void Calc_Temp(void) {
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	//  if(GPIO_Pin== SD_Pin) {
-		if (HAL_GPIO_ReadPin(SD_GPIO_Port,SD_Pin)==GPIO_PIN_RESET) {
+	 // if(GPIO_Pin== SD_Pin) {
+		  __HAL_GPIO_EXTI_CLEAR_IT(SD_Pin);
+		  //
+		if ((HAL_GPIO_ReadPin(SD_GPIO_Port,SD_Pin)==GPIO_PIN_RESET)) {
 			Blocked_by_Perek=1;
 		} else {
 			Blocked_by_Perek=0;
 		}
-	//  }
+	 // }
 }
 
 void HAL_PWR_PVDCallback(void)
