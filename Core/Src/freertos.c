@@ -202,6 +202,8 @@ void StartLoop_Task(void const * argument)
 			//Enable_INV();
 			KLAPAN_SIGN=0;
 			//restart_stamp=0;
+
+			//
 			restart_flag=0;
 			restart_flag_stamp=0;
 		} else {
