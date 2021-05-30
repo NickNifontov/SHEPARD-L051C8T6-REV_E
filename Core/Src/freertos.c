@@ -191,6 +191,8 @@ void StartLoop_Task(void const * argument)
 
 	  HAL_GPIO_EXTI_Callback(SD_Pin);
 
+	  //osDelay(500);
+
 	  for(;;)
 	  {
 		if ((Blocked_by_AB==0) && (Blocked_by_Perek==0) && (Blocked_by_PVD==0) && (Blocked_by_TEMP==0)

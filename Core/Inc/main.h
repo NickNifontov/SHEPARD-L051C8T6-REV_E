@@ -126,15 +126,31 @@ void Calc_Temp(void);
 #define TEMP_DELAY_LENGTH 120 // 5 min
 #define TEMP_ROLLBACK_DELAY_LENGTH 10 //sec
 
-#define BUZZER_OPORA 500 // 1.0V - 0.2V
-#define BUZZER_OPORA_MIN ((uint16_t) 497)
-#define BUZZER_OPORA_MAX ((uint16_t) 503)
 
 #define AB_LOW ((uint16_t) 460)
-#define AB_ROLLBACK ((uint16_t) 550)
 #define AB_MAX ((uint16_t) 645)
-#define AB_COLDRUN ((uint16_t) 525)
 #define AB_COLDRUN_FROM_MAX ((uint16_t) 475)
+
+#define LIFEPO4
+
+#ifndef LIFEPO4
+	// AGM/GEL
+	#define AB_ROLLBACK ((uint16_t) 550)
+	#define AB_COLDRUN ((uint16_t) 525)
+	#define BUZZER_OPORA 500 // 1.0V - 0.2V
+	#define BUZZER_OPORA_MIN ((uint16_t) 497)
+	#define BUZZER_OPORA_MAX ((uint16_t) 503)
+#endif
+
+#ifdef LIFEPO4
+	// LiFe  Challenger
+	#define AB_ROLLBACK ((uint16_t) 515)
+	#define AB_COLDRUN ((uint16_t) 475)
+	#define BUZZER_OPORA 470 // 1.0V - 0.2V
+	#define BUZZER_OPORA_MIN ((uint16_t) 467)
+	#define BUZZER_OPORA_MAX ((uint16_t) 473)
+#endif
+
 
 #define ADC_CONVERTED_DATA_BUFFER_SIZE   ((uint32_t)  4)   /* Size of array aADCxConvertedData[] */
 #define ADC_LENGTH_SAMPLING_BASE	((uint8_t)  10) //10msec
